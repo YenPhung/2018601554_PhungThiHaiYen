@@ -25,7 +25,7 @@
                                 <img src="../images/<?= $row['logo'] ?>" alt="" style="width:50px;height:50px;object-fit:cover">
                             </td>
                             <td><?= $row['diachi'] ?></td>
-                            <td><?= $row['slogan'] ?>đ</td>
+                            <td><?= $row['slogan'] ?></td>
                             <td><?= $row['sdt'] ?></td>
                             <td><?= $row['email'] ?></td>
                             <td>

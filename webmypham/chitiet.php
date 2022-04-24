@@ -148,7 +148,6 @@ if (isset($_GET["id"])) {
                                         <?php
                                     }
                                     ?>
-                                    <p style="font-family: Tahoma;">Khả dụng : <span>Số lượng</span> <label>(13 còn trong kho)</label></p>
                                 </div>
                                 <form class="colo-siz" method="POST">
                                     <div class="color">
@@ -362,7 +361,7 @@ if (isset($_GET["id"])) {
                                 </div>
                                 <div class="sim-slider owl-carousel">
                                    <?php 
-                                    foreach (selectAll("SELECT * FROM sanpham WHERE id_danhmuc = $cateid AND NOT(id = $idSanpham) LIMIT 1") as $item) {
+                                    foreach (selectAll("SELECT * FROM sanpham WHERE id_danhmuc = $cateid AND NOT(id = $idSanpham)") as $item) {
                                         ?>
                                          <div class="sim-item">
                                         <div class="sim-img">
@@ -409,7 +408,7 @@ if (isset($_GET["id"])) {
                 <div class="col-md-3">
                     <div class="ht-offer">
                         <div class="sec-title">
-                            <h6>Hot Offer</h6>
+                            <h6>Ưu Đãi Mới</h6>
                         </div>
                         <div class="ht-body owl-carousel">
                         <?php 
@@ -430,10 +429,10 @@ if (isset($_GET["id"])) {
                                                 <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
                                             </ul>
                                             <ul class="list-unstyled list-inline price">
-                                                    <li class="list-inline-item" style="font-size: 11px">
+                                                    <li class="list-inline-item" style="font-size: 14px">
                                                         <?= $item['giakm']==0?number_format($item['gia']):number_format($item['gia']*((100-$item['giakm'])/100)) ?>đ
                                                     </li>
-                                                    <li class="list-inline-item" style="font-size: 11px"><?= $item['giakm']==0?'':number_format($item['gia']).'đ' ?></li>
+                                                    <li class="list-inline-item" style="font-size: 14px"><?= $item['giakm']==0?'':number_format($item['gia']).'đ' ?></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -441,9 +440,6 @@ if (isset($_GET["id"])) {
                             }
                         ?>
                         </div>
-                    </div>
-                    <div class="add-box">
-                        <a href="#"><img src="images/s-banner1.jpg" alt="" class="img-fluid"></a>
                     </div>
                 </div>
             </div>

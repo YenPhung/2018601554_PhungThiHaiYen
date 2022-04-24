@@ -62,7 +62,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="logo">
-                            <a href="index.php"><img style="width:150px;height:80px;object-fit:cover" src="./images/<?= $logo ?>" alt=""></a>
+                            <a href="index.php"><img style="width:200px;height:80px;object-fit:cover; margin: 0px;" src="./images/<?= $logo ?>" alt=""></a>
                         </div>
                     </div>
                     <div class="col-md-5 padding-fix">
@@ -174,9 +174,9 @@
                             <ul class="list-unstyled list-inline">
                                 <li  class="list-inline-item"><a href="index.php" style="font-family: Tahoma;">TRANG CHỦ</a>
                                 </li>
-                                <li  class="list-inline-item mega-menu"><a style="font-family: Tahoma;">GIỚI THIỆU</a>
+                                <li  class="list-inline-item mega-menu"><a href = "gioithieu.php" style="font-family: Tahoma;">GIỚI THIỆU</a>
                                 </li>
-                                <li  class="list-inline-item"><a style="font-family: Tahoma;">TIN TỨC </a>
+                                <li  class="list-inline-item"><a href = "tintuc.php" style="font-family: Tahoma;">TIN TỨC </a>
                                 </li>
                                 <li  class="list-inline-item"><a style="font-family: Tahoma;">LIÊN HỆ</a>
                                 </li>

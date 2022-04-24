@@ -29,11 +29,9 @@
                             </div>
                             <div class="f-social">
                                 <ul class="list-unstyled list-inline">
-                                    <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li class="list-inline-item"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                    <li class="list-inline-item"><a href="https://www.facebook.com/yenphung2k"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="list-inline-item"><a href="https://www.instagram.com/yenphung1505/"><i class="fa fa-instagram"></i></a></li>
+                                    
                                 </ul>
                             </div>
                         </div>
