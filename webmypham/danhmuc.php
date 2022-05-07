@@ -122,7 +122,13 @@
                                 <div class="tab-pane fade show active" id="grid" role="tabpanel">
                                     <div class="row">
                                         <?php 
-                                            foreach (selectAll("SELECT * FROM sanpham WHERE id_danhmuc=$iddanhmuc") as $row) {
+                                        $item_per_page = !empty($_GET['per_page'])?$_GET['per_page']:6;
+                                        $current_page = !empty($_GET['page'])?$_GET['page']:1;
+                                        $offset = ($current_page - 1) * $item_per_page;
+                                        $numrow = rowCount("SELECT * FROM sanpham WHERE id_danhmuc=$iddanhmuc && status=0");
+                                        $totalpage = ceil($numrow / $item_per_page);
+                                            foreach (selectAll("SELECT * FROM sanpham WHERE id_danhmuc=$iddanhmuc && status=0 LIMIT $item_per_page OFFSET $offset") as $row) {
+                                                $getid = ($_GET["id"]);
                                                 ?>
                                                      <div class="col-lg-4 col-md-6">
                                                         <div class="tab-item">
@@ -162,6 +168,54 @@
                                                 <?php
                                             }
                                         ?>
+                                        <div class="col-lg-12">
+                                            <div class="pageination">
+                                                <nav aria-label="Page navigation example">
+                                                    <ul class="pagination justify-content-center">
+                                                    <?php 
+                                                        if ($current_page>1){
+                                                            $prev_page = $current_page - 1;
+                                                    ?>
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="category.php?id=<?= $getid?>&per_page=<?=$item_per_page?>&page=<?=$prev_page?>" aria-label="Previous">
+                                                                <i class="ti-angle-double-left"></i>
+                                                            </a>
+                                                        </li>
+                                                    <?php 
+                                                    } ?>
+                                                        
+                                                        <?php for($num = 1; $num <=$totalpage;$num++) { ?>
+                                                            <?php 
+                                                                if ($num != $current_page){ 
+                                                            ?>
+                                                                <?php if ($num > $current_page-3 && $num < $current_page+3){ ?>
+                                                                <li class="page-item"><a class="page-link" href="category.php?id=<?= $getid?>&per_page=<?=$item_per_page?>&page=<?=$num?>"><?=$num?></a></li>
+                                                                <?php } ?>
+                                                            <?php 
+                                                            } 
+                                                            else{ 
+                                                            ?>
+                                                                <strong class="page-item"><a class="page-link"><?=$num?></a></strong>
+                                                            <?php 
+                                                            }
+                                                        } 
+                                                        ?>
+
+                                                    <?php 
+                                                        if ($current_page < $totalpage - 1){
+                                                            $next_page = $current_page + 1;
+                                                    ?>
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="category.php?id=<?= $getid?>&per_page=<?=$item_per_page?>&page=<?=$next_page?>" aria-label="Next">
+                                                                <i class="ti-angle-double-right"></i>
+                                                            </a>
+                                                        </li>
+                                                    <?php 
+                                                        } ?>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

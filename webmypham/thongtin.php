@@ -134,17 +134,28 @@
                         <?php
                     }else{
                         ?>
-                            <form action="" method="POST">
+                            <form action="" method="POST" enctype="multipart/form-data">
                                 <?php 
                                     foreach (selectAll("SELECT * FROM taikhoan WHERE id=$id_nguoidung") as $item) {
                                         $tencu = $item['hoten'];
                                         $taikhoancu = $item['taikhoan'];
                                         $sdtcu = $item['sdt'];
+                                        $anhcu = $item['anh'];
                                     }
                                     if (isset($_POST["doihoten"])) {
                                         $hoten = $_POST["hoten"];
                                         $sodienthoai = $_POST["sodienthoai"];
-                                        selectAll("UPDATE taikhoan SET hoten='$hoten',sdt='$sodienthoai' WHERE id=$id_nguoidung");
+                                        $anh = $_FILES['anh']['name'];
+                                        $tmp1 = $_FILES['anh']['tmp_name'];
+                                        $type1 = $_FILES['anh']['type'];
+                                        $dir = './images/';
+                                        move_uploaded_file($tmp1, $dir . $anh);
+                                        if (empty($anh)) {
+                                            selectAll("UPDATE taikhoan SET hoten='$hoten',sdt='$sodienthoai' WHERE id=$id_nguoidung");
+                                        }
+                                        else{
+                                        selectAll("UPDATE taikhoan SET hoten='$hoten',anh='$anh',sdt='$sodienthoai' WHERE id=$id_nguoidung");
+                                        }
                                         echo "<meta http-equiv='refresh' content='0'>";
                                     }
                                 ?>
@@ -161,11 +172,28 @@
                                         <label for="taikhoan" class="d-flex justify-content-between"><p style="font-weight:bold">Email*</p></label>
                                         <input disabled value="<?= $taikhoancu ?>" id="taikhoan" style="width: 100%;height: 45px;-webkit-border-radius: 30px;-moz-border-radius: 30px;-ms-border-radius: 30px;border-radius: 30px;padding-left: 15px;margin-bottom: 35px;" type="text" name="taikhoan"  required>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="anhdaidien" class="d-flex justify-content-between"><p style="font-weight:bold">Ảnh Đại Diện</p></label>
+                                        <label >Upload ảnh -></label>
+                                        <label for="imgInp" style="cursor:pointer">
+                                            <img id="blah"  width="50" height="50" src="<?= empty($anhcu)?'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsYElAJVdc_nUeBp5o-DiTGiVjNn7aVG2twi2cSfIDsuaHnvk7YSvk1IHe1LsK8qE2Hr4&usqp=CAU':'./images/'.$anhcu.'' ?>">
+                                        
+                                        </label>
+                                        <input hidden type="file" name="anh" accept="image/*" id="imgInp" class="form-control" >
+                                    </div>
                                     <div class="col-md-5 text-right">
                                         <button type="submit" name="doihoten">Cập nhật</button>
                                     </div>
                                 </div>
                             </form>
+                            <script>
+                                imgInp.onchange = evt => {
+                                    const [file] = imgInp.files
+                                    if (file) {
+                                        blah.src = URL.createObjectURL(file)
+                                    }
+                                }
+                            </script>
                         <?php
                     }
                 ?>

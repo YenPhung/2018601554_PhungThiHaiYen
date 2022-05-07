@@ -26,7 +26,7 @@
                 move_uploaded_file($tmp1, $dir . $anh);
                 move_uploaded_file($tmp2, $dir . $anh1);
                 move_uploaded_file($tmp3, $dir . $anh2);
-                selectAll("INSERT INTO sanpham VALUES(NULL,$danhmuc,$hangsx,'$ten',$gia,$giakm,'$anh','$anh1','$anh2','$chitiet',0)");
+                selectAll("INSERT INTO sanpham VALUES(NULL,$danhmuc,$hangsx,'$ten',$gia,$giakm,'$anh','$anh1','$anh2','$chitiet',0,0)");
                 header('location:sanpham.php');
             }
             ?>

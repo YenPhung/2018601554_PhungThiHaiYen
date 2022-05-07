@@ -7,8 +7,13 @@
         }
         if ($permission==1) {
             if (isset($_GET["id"])) {
-                selectAll("DELETE FROM danhmuc WHERE id={$_GET['id']}");
-                header('location:index.php');
+                if(rowCount("SELECT * FROM sanpham WHERE id_danhmuc={$_GET['id']}")>0){
+                    echo '<script>alert("Chỉ được xóa danh mục không có sản phẩm")</script>';
+                }
+                else {
+                    selectAll("DELETE FROM danhmuc WHERE id={$_GET['id']}");
+                    header('location:index.php');
+                }
             }
             ?>
             <a href="themdanhmuc.php" class="btn btn-success my-3 ml-3">Thêm danh mục</a>

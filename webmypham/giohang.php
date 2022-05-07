@@ -147,7 +147,7 @@
                                         foreach (selectAll("SELECT SUM(tongtien) FROM donhang WHERE id_taikhoan=$idtaikhoan && status=0") as $item) {
                                             $tongtien = $item['SUM(tongtien)'];
                                             $phiship = 30000;
-                                            $tong = $tongtien-30000;
+                                            $tong = $tongtien+30000;
                                         }
                                         ?>
                                         <ul class="list-unstyled">

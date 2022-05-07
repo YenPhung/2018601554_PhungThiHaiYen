@@ -6,9 +6,15 @@
             $permission = $row['phanquyen'];
         }
         if ($permission==1) {
+            
             if (isset($_GET["id"])) {
-                selectAll("DELETE FROM hangsx WHERE masx={$_GET['id']}");
-                header('location:hangsx.php');
+                if(rowCount("SELECT * FROM hangsx WHERE masx={$_GET['id']}")>0){
+                    echo '<script>alert("Chỉ được xóa hãng sản xuất không có sản phẩm")</script>';
+                }
+                else {
+                    selectAll("DELETE FROM hangsx WHERE masx={$_GET['id']}");
+                    header('location:hangsx.php');
+                }
             }
             ?>
             <a href="themhangsx.php" class="btn btn-success my-3 ml-3">Thêm hãng sản xuất</a>
@@ -29,7 +35,7 @@
                             <td><?= rowCount("SELECT * FROM sanpham WHERE masx={$row['masx']}") ?></td>
                             <td>
                                 <a class="btn btn-secondary" href="suahangsx.php?id=<?= $row['masx'] ?>">Sửa</a>
-                                <a class="btn btn-danger" href="?id=<?= $row['masx'] ?>" onclick="return confirm('Bạn có muốn xóa sản phẩm này không ?')">Xóa</a>
+                                <a class="btn btn-danger" href="?id=<?= $row['masx'] ?>" onclick="return confirm('Bạn có muốn xóa hãng sản xuất này không ?')">Xóa</a>
                             </td>
                         </tr>
                     <?php

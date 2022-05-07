@@ -7,8 +7,14 @@
         }
         if ($permission==1) {
             if (isset($_GET["id"])) {
-                selectAll("DELETE FROM taikhoan WHERE id={$_GET['id']}");
-                header('location:nguoidung.php');
+                if(rowCount("SELECT * FROM donhang WHERE id_taikhoan={$_GET['id']} && status=2")>0){
+                    echo '<script>alert("Chỉ được xóa tài khoản chưa đặt đơn hàng nào")</script>';
+                }
+                
+                else {
+                    selectAll("DELETE FROM taikhoan WHERE id={$_GET['id']}");
+                    header('location:nguoidung.php');
+                }
             }
             ?>
             <a href="themnd.php" class="btn btn-success my-3 ml-3">Thêm tài khoản</a>

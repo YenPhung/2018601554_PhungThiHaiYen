@@ -104,8 +104,8 @@
                                        <?php 
                                         if (isset($_GET["q"])) {
                                             $keyword = $_GET["q"];
-                                            if (rowCount("SELECT * FROM `sanpham` WHERE `ten` LIKE '%$keyword%'")>0) {
-                                                foreach (selectAll("SELECT * FROM `sanpham` WHERE `ten` LIKE '%$keyword%'") as $row) {
+                                            if (rowCount("SELECT * FROM `sanpham` WHERE `ten` LIKE '%$keyword%' && status =0")>0) {
+                                                foreach (selectAll("SELECT * FROM `sanpham` WHERE `ten` LIKE '%$keyword%' && status =0") as $row) {
                                                     ?>
                                                          <div class="col-lg-4 col-md-6">
                                                             <div class="tab-item">
@@ -150,7 +150,7 @@
                                                 <?php
                                             }
                                         }else{
-                                            foreach (selectAll("SELECT * FROM sanpham") as $row) {
+                                            foreach (selectAll("SELECT * FROM sanpham WHERE status=0") as $row) {
                                                 ?>
                                                      <div class="col-lg-4 col-md-6">
                                                         <div class="tab-item">

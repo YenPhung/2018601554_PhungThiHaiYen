@@ -57,6 +57,7 @@ include './admin/connect.php';
                         }
                     }
                     ?>
+                    
                     <form action="" method="post">
                         <h5 style="font-family: Tahoma;">Đăng nhập</h5>
                         <div class="row">
@@ -73,7 +74,7 @@ include './admin/connect.php';
                             </div>
                             <div class="col-md-12" style="font-family: Tahoma;">
                                 <label>Mật khẩu*</label>
-                                <input style="border: 1px solid #dddddd;width: 100%;height: 45px;-webkit-border-radius: 30px;-moz-border-radius: 30px;-ms-border-radius: 30px;border-radius: 30px;padding-left: 15px;margin-bottom: 35px;" type="password" name="matkhau" required placeholder="Vui lòng nhập mật khẩu">
+                                <input style="border: 1px solid #dddddd;width: 100%;height: 45px;-webkit-border-radius: 30px;-moz-border-radius: 30px;-ms-border-radius: 30px;border-radius: 30px;padding-left: 15px;margin-bottom: 35px;" type="password" name="matkhau" required placeholder="Vui lòng nhập mật khẩu" required>
                             </div>
                             <div class="col-md-5 text-right">
                                 <button  type="submit" name="dangnhap">Đăng nhập</button>

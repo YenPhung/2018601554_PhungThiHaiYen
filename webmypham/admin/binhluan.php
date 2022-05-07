@@ -49,7 +49,7 @@
                         </td>
                         <td>
                             <a href="../chitiet.php?id=<?= $row['id_sanpham'] ?>#binhluan">Chi tiết</a>
-                            <a class="btn btn-danger" href="?id=<?= $row['id'] ?>" onclick="return confirm('Bạn có muốn xóa người dùng này không ?')">Xóa</a>
+                            <!-- <a class="btn btn-danger" href="?id=<?= $row['id'] ?>" onclick="return confirm('Bạn có muốn xóa người dùng này không ?')">Xóa</a> -->
                         </td>
                     </tr>
                 <?php

@@ -18,7 +18,7 @@
                 $dir = '../images/';
                 move_uploaded_file($tmp1, $dir . $anh);
                 if (empty($_FILES['anh']['name'])) {
-                    selectAll("INSERT INTO taikhoan VALUES(null,'$email','$matkhau','$ten','',$phanquyen)");
+                    selectAll("INSERT INTO taikhoan  VALUES(null,'$email','$matkhau','$ten','','',$phanquyen)");
                 }
                 else{
                     selectAll("INSERT INTO taikhoan VALUES(null,'$email','$matkhau','$ten','',$phanquyen)");
