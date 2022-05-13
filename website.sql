@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 07, 2022 lúc 04:04 PM
+-- Thời gian đã tạo: Th5 11, 2022 lúc 04:32 PM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.1.2
 
@@ -214,7 +214,7 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`id`, `taikhoan`, `matkhau`, `hoten`, `sdt`, `anh`, `phanquyen`) VALUES
-(1, 'yenphung123123123@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Yến Phùng 123', '092222233', '1635563498695-combo-tay-te-bao-chet-cocoon-queen-chat-4-600x600.jpeg', 0),
+(1, 'yenphung123123123@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Yến Phùng 1', '092222233', '1635563498695-combo-tay-te-bao-chet-cocoon-queen-chat-4-600x600.jpeg', 0),
 (5, 'admin@gmail.com', '202cb962ac59075b964b07152d234b70', 'Yến', '0922888888', 'testimonial-2.jpg', 1);
 
 -- --------------------------------------------------------
